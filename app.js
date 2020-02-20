@@ -11,13 +11,13 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cors());
-app.set('db', path.join(__dirname, 'db', __filename));
-app.use((req, res, next) => {})
+app.set('/db', path.join(__dirname, '/db'));
+// app.use((req, res, next) => {})
 
-app.use('/', appRoutes)
+app.use('/api', appRoutes);
 
 app.listen(config.port, () => {
     console.log('Server up and running!');
-})
+});
 
 module.exports = app;
